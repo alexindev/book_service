@@ -35,6 +35,6 @@ docker compose up --buld -d
 ```
 
 #### 5. Документация по проекту
-```http request
-http://localhost:8000/doc
+```
+http://localhost:8000/docs
 ```
