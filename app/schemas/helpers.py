@@ -6,7 +6,7 @@ class SUsersWithBooks(BaseModel):
     books_count: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class SUserInfo(BaseModel):
@@ -14,3 +14,6 @@ class SUserInfo(BaseModel):
     author: str
     year: int
     department: str
+
+    class Config:
+        from_attributes = True

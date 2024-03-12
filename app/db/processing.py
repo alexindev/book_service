@@ -23,7 +23,7 @@ class BaseCRUD:
                 return "Запись с таким названием уже существует"
             else:
                 # создаем новую запись
-                new_row = cls.model(depart_name=data)
+                new_row = cls.model(name=data)
                 session.add(new_row)
                 await session.commit()
                 return "Новая запись успешно добавлена"
@@ -33,13 +33,13 @@ class BaseCRUD:
         """ Удалить запись """
         async with async_session() as session:
             result = await session.execute(select(cls.model).filter_by(id=data_id))
-            department_to_delete = result.scalars().first()
+            row_to_delete = result.scalars().first()
 
             # удалим запись, если нашли запись
-            if department_to_delete:
-                await session.delete(department_to_delete)
+            if row_to_delete:
+                await session.delete(row_to_delete)
                 await session.commit()
-                return f"Отдел с id: {data_id} удален"
+                return f"Запись с id: {data_id} удалена"
 
             # иначе выводим сообщение
             else:
