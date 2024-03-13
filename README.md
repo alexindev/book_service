@@ -23,7 +23,7 @@ git clone https://github.com/alexindev/book_service.git
 #### 3. Задать переменные окружения по шаблону
 ```dotenv
 DB_USER=
-DB_PASSWORD=
+DB_PASS=
 DB_NAME=
 DB_HOST=
 DB_PORT=
