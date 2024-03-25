@@ -7,13 +7,13 @@ from app.schemas import SDepartment
 router = APIRouter(tags=["Отделы"])
 
 
-@router.post('/get_department')
+@router.get('/get_department')
 async def get_department() -> List[SDepartment]:
     """ Получить все отделы """
     return await DepartmentProcess.get_departments()
 
 
-@router.post('/del_department')
+@router.delete('/del_department')
 async def del_department(department_id: int) -> str:
     """ Удалить отдел по его id """
     return await DepartmentCRUD.del_data(department_id)
